@@ -14,6 +14,7 @@ def get_group_id(group_name):
         print(e)
         exit(1)
     else:
+        # we're only processing one group
         if len(r.json()) == 1:
             group_id = r.json()[0]['id']
             print("found id: " + str(group_id))
@@ -40,7 +41,7 @@ def get_metric_list():
 
 
 def main():
-    device_group = "active"
+    device_group = "vra"
     requests.packages.urllib3.disable_warnings()
 
     # get id and push on metrics_payload
